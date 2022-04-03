@@ -18,7 +18,9 @@ namespace FitnessWebApplication.Models
         public List<Reservation> Reservations { get; set; }
 
         //relatia dintre clase si antrenori
-        public List<Trainer> Trainers { get; set; }
+        public int TrainerId { get; set; }
+        public Trainer Trainer { get; set; }
+
 
     }
 }

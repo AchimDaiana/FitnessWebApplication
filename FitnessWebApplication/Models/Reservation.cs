@@ -15,7 +15,8 @@ namespace FitnessWebApplication.Models
         public List<User> Users { get; set; }
 
         //relatia rezervarilor cu clasele
-        public List<Classes> Classes { get; set; }
+        public int ClassesId { get; set; }
+        public Classes Classes { get; set; }
 
 
     }
