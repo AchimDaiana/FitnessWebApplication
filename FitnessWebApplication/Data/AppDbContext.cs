@@ -22,6 +22,11 @@ namespace FitnessWebApplication.Data
                 am.UserId
             });
 
+            modelBuilder.Entity<Classes>().HasKey(am => new
+            {
+                am.TrainerId
+            });
+
             modelBuilder.Entity<User_Subscription>().HasOne(m => m.Subscription).WithMany(am => am.User_Subscriptions).HasForeignKey(m => m.SubscriptionId);
             modelBuilder.Entity<User_Subscription>().HasOne(m => m.User).WithMany(am => am.User_Subscriptions).HasForeignKey(m => m.UserId);
 

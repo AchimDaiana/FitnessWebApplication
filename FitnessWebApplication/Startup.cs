@@ -1,4 +1,5 @@
 using FitnessWebApplication.Data;
+using FitnessWebApplication.Data.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,6 +29,11 @@ namespace FitnessWebApplication
         {
             //db context configuration
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString")));
+
+            //services configuration
+            services.AddScoped<ITrainersServices, TrainersService>();
+            
+            
             services.AddControllersWithViews();
         }
 

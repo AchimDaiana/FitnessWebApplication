@@ -1,4 +1,6 @@
 ﻿using FitnessWebApplication.Data;
+using FitnessWebApplication.Data.Services;
+using FitnessWebApplication.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,18 +11,35 @@ namespace FitnessWebApplication.Controllers
 {
     public class TrainersController : Controller
     {
-        private readonly AppDbContext _contex;
+        private readonly ITrainersServices _service;
 
-        public TrainersController(AppDbContext context)
+        public TrainersController(ITrainersServices service)
         {
-            _contex = context;
+            _service = service;
         }
 
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var data = _contex.Trainers.ToList();
+            var data = await _service.GetAll();
             return View(data);
+        }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create([Bind("FirstName,LastName,Biography,Class,ProfilePictureUrl")]Trainer trainer)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(trainer);
+            }
+            
+            _service.Add(trainer);
+            return RedirectToAction(nameof(Index));
         }
     }
 }

@@ -14,6 +14,8 @@ namespace FitnessWebApplication.Models
 
         [Display(Name = "Profile Picture")]
         public string ProfilePictureUrl { get; set; }
+
+        [Required(ErrorMessage ="Biography is required")]
         public string Biography { get; set; }
 
         //relatia antrenori cu clase

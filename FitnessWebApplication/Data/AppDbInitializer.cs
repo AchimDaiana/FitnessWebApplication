@@ -39,6 +39,26 @@ namespace FitnessWebApplication.Data
                 {
 
                 }
+                //Antrenori
+                /* if (!context.Trainers.Any())
+                 {
+                     context.Trainers.AddRange(new List<Trainer>() {
+                     new Trainer()
+                     {
+                         FirstName = "Pamela",
+                         LastName = "Reif",
+                         ProfilePictureUrl ="",
+                         Biography = "Pamela Reif și-a început călătoria în fitness pe rețelele de socializare încă din 2012, când avea doar 16 ani. " +
+                         "Exercițiile ei preferate sunt podurile pentru fesieri, genuflexiunile, miscarile abdominale sau orice fel de seturi de greutate corporală.",
+                         ClassesId = 1
+                     }
+
+                     });
+                 context.SaveChanges();
+
+                 }*/
+
+              
                 //Clase
                 if (!context.Classes.Any())
                 {
