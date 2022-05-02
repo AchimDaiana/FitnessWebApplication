@@ -34,31 +34,33 @@ namespace FitnessWebApplication.Data
                 {
 
                 }
-                //Rezervariu
+                //Rezervari
                 if (!context.Reservations.Any())
                 {
 
                 }
+
+
                 //Antrenori
-                /* if (!context.Trainers.Any())
-                 {
-                     context.Trainers.AddRange(new List<Trainer>() {
-                     new Trainer()
-                     {
-                         FirstName = "Pamela",
-                         LastName = "Reif",
-                         ProfilePictureUrl ="",
-                         Biography = "Pamela Reif și-a început călătoria în fitness pe rețelele de socializare încă din 2012, când avea doar 16 ani. " +
-                         "Exercițiile ei preferate sunt podurile pentru fesieri, genuflexiunile, miscarile abdominale sau orice fel de seturi de greutate corporală.",
-                         ClassesId = 1
-                     }
+                if (!context.Trainers.Any())
+                {
+                    context.Trainers.AddRange(new List<Trainer>() {
+                    new Trainer()
+                    {
+                        FirstName = "Pamela",
+                        LastName = "Reif",
+                        ProfilePictureUrl ="C:/LICENTA/Aplicatie/FitnessWebApplication/FitnessWebApplication/wwwroot/Images/pamela.jpg",
+                        Biography = "Pamela Reif și-a început călătoria în fitness pe rețelele de socializare încă din 2012, când avea doar 16 ani. " +
+                        "Exercițiile ei preferate sunt podurile pentru fesieri, genuflexiunile, miscarile abdominale sau orice fel de seturi de greutate corporală.",
 
-                     });
-                 context.SaveChanges();
+                    }
 
-                 }*/
+                    });
+                    context.SaveChanges();
 
-              
+                }
+
+
                 //Clase
                 if (!context.Classes.Any())
                 {
@@ -70,30 +72,48 @@ namespace FitnessWebApplication.Data
                         PictureUrl = "",
                         ClassCategory = ClassCategory.FullBody,
                         TrainerId = 1
-                    }
-                    });
+                    },
+
+                   /*  new Classes()
+                    {
+                        Name = "Pilates",
+                        Description = "Descriere Pilates",
+                        PictureUrl = "",
+                        ClassCategory = ClassCategory.FullBody,
+                       // TrainerId = 
+                    },
+
+                      new Classes()
+                    {
+                        Name = "Circuit Training",
+                        Description = "Descriere Circuit Training",
+                        PictureUrl = "",
+                        ClassCategory = ClassCategory.FullBody,
+                       // TrainerId = 
+                    },
+
+                       new Classes()
+                    {
+                        Name = "Kangoo Jumps",
+                        Description = "Descriere Kangoo Jumps",
+                        PictureUrl = "",
+                        ClassCategory = ClassCategory.LowerBody,
+                       // TrainerId = 
+                    },
+
+                        new Classes()
+                    {
+                        Name = "Abs&Arms",
+                        Description = "Descriere Abs&arms",
+                        PictureUrl = "",
+                        ClassCategory = ClassCategory.Core,
+                       // TrainerId = 
+                    }*/
+                    }) ;
                     context.SaveChanges();
 
                 }
               
-                //Antrenori
-                if (!context.Trainers.Any())
-                {
-                    context.Trainers.AddRange(new List<Trainer>() {
-                    new Trainer()
-                    {
-                        FirstName = "Pamela",
-                        LastName = "Reif",
-                        ProfilePictureUrl ="",
-                        Biography = "Pamela Reif și-a început călătoria în fitness pe rețelele de socializare încă din 2012, când avea doar 16 ani. " +
-                        "Exercițiile ei preferate sunt podurile pentru fesieri, genuflexiunile, miscarile abdominale sau orice fel de seturi de greutate corporală.",
-                        ClassesId = 1
-                    }
-
-                    });
-                context.SaveChanges();
-
-                }
             
 
 

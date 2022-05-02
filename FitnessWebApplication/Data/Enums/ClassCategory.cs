@@ -7,10 +7,9 @@ namespace FitnessWebApplication.Data.Enums
 {
     public enum ClassCategory
     {
-        UpperBody,
-        LowerBody,
-        Contur,
-        Core,
-        FullBody
+        UpperBody=1,
+        LowerBody=2,
+        Core=3,
+        FullBody=4
     }
 }

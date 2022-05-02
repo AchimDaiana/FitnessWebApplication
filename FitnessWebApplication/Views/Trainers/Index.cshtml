@@ -1,16 +1,18 @@
-﻿@*Definim modelul*@
+﻿@using FitnessWebApplication.Models
+
+@*Definim modelul*@
 @model IEnumerable<Trainer>
 @*Definim Viewul*@
 @{
-    ViewData["Title"] = "Lista antrenorilor fitness";
+    ViewData["Title"] = "List of fitness trainers";
 }
 
 @*Codul*@
 <h1>Lista antrenorilor fitness</h1>
 
 <p>
-        <a asp-action="Create">Create New</a>
-    </p>
+    <a asp-action="Create">Create New</a>
+</p>
 
 <table class="table">
     <thead>
@@ -24,9 +26,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Biography)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Classes)
-            </th>
+            @*            <th>
+                    @Html.DisplayNameFor(model => model.Classes)
+                </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.ProfilePictureUrl)
             </th>
@@ -46,17 +48,17 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Biography)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Classes)
-                </td>
+                @*             <td>
+                        @Html.DisplayFor(modelItem => item.Classes)
+                    </td>*@
                 <td>
                     <img src="@item.ProfilePictureUrl" alt="@item.FirstName" class="rounded">
                 </td>
-                @*            <td>
-                        <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                        <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                        <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-                    </td>*@
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
             </tr>
         }
     </tbody>

@@ -1,4 +1,5 @@
-﻿using FitnessWebApplication.Models;
+﻿using FitnessWebApplication.Data.BaseRepositories;
+using FitnessWebApplication.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -7,39 +8,12 @@ using System.Threading.Tasks;
 
 namespace FitnessWebApplication.Data.Services
 {
-    public class TrainersService : ITrainersServices
+    public class TrainersService :EntityBaseRepository<Trainer>, ITrainersServices
     {
-        private readonly AppDbContext _context;
+        
 
-        public TrainersService(AppDbContext context)
-        {
-            _context = context;
-        }
-        public void Add(Trainer trainer)
-        {
-            _context.Trainers.Add(trainer);
-            _context.SaveChanges();
-        }
-
-        public void Delete(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public async Task<IEnumerable<Trainer>> GetAll()
-        {
-            var result = await _context.Trainers.ToListAsync();
-            return result;
-        }
-
-        public Trainer GetById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Trainer Update(int id, Trainer newTrainer)
-        {
-            throw new NotImplementedException();
-        }
+        public TrainersService(AppDbContext context) : base(context) { }
+        
+        
     }
 }

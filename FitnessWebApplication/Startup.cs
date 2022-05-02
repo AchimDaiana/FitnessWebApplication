@@ -32,7 +32,7 @@ namespace FitnessWebApplication
 
             //services configuration
             services.AddScoped<ITrainersServices, TrainersService>();
-            
+            services.AddScoped<IClassesServices, ClassesService>();
             
             services.AddControllersWithViews();
         }

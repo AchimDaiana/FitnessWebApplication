@@ -21,18 +21,18 @@ namespace FitnessWebApplication.Data
                 am.SubscriptionId,
                 am.UserId
             });
-
-            modelBuilder.Entity<Classes>().HasKey(am => new
-            {
-                am.TrainerId
-            });
-
             modelBuilder.Entity<User_Subscription>().HasOne(m => m.Subscription).WithMany(am => am.User_Subscriptions).HasForeignKey(m => m.SubscriptionId);
             modelBuilder.Entity<User_Subscription>().HasOne(m => m.User).WithMany(am => am.User_Subscriptions).HasForeignKey(m => m.UserId);
 
+            // modelBuilder.Entity<Classes>().HasKey(am => new
+             //{
+             //    am.Id
+            // });
 
+            
             //modelBuilder.Entity<Trainer>().HasOne(m => m.Classes).WithOne(am => am.Trainer).HasForeignKey<Classes>(m => m.ClassesId);
-            modelBuilder.Entity<Classes>().HasOne(m => m.Trainer).WithOne(am => am.Classes).HasForeignKey<Classes>(m => m.TrainerId);
+            //modelBuilder.Entity<Classes>().HasOne(m => m.Trainer).WithOne(am => am.Classes).HasForeignKey<Classes>(m => m.TrainerId);
+
 
             base.OnModelCreating(modelBuilder);
 

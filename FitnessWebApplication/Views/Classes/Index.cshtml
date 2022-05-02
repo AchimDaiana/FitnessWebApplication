@@ -1,0 +1,27 @@
+﻿@using FitnessWebApplication.Models
+@model IEnumerable<Classes>
+
+@{
+    ViewData["Title"] = "List of fitness classes";
+}
+
+<h1>Lista claselor fitness disponibile</h1>
+@{
+    foreach (var item in Model)
+    {
+    <div class="col-md-12">
+        <img src="@item.PictureUrl" alt="@item.Name" class="rounded">
+        <h3>
+            <a asp-controller="Classes" asp-action="Details" asp-route-id="@item.Id">@item.Name</a>
+        </h3>
+        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+    </div>
+    }
+
+
+}
+
+<div class="float-right">
+    <a asp-action="Create">Add New Class</a>
+</div>

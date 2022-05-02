@@ -1,4 +1,5 @@
-﻿using FitnessWebApplication.Data.Enums;
+﻿using FitnessWebApplication.Data.BaseRepositories;
+using FitnessWebApplication.Data.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FitnessWebApplication.Models
 {
-    public class Classes
+    public class Classes:IEntityBase
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -20,6 +21,9 @@ namespace FitnessWebApplication.Models
         //relatia dintre clase si antrenori
         public int TrainerId { get; set; }
         public Trainer Trainer { get; set; }
+
+        //relatia cu orarul
+        public Schedule Schedule { get; set; }
 
 
     }
