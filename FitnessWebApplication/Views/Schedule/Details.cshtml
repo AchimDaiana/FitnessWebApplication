@@ -1,0 +1,30 @@
+﻿@model Schedule
+
+
+@{
+    ViewData["Title"] = "Details about schedule";
+}
+
+<h1>Detalii despre oraul clasei </h1>
+<div class="row">
+    <div class="col-md-8 offset-2">
+        <p class="card-text"><b>Ora start: </b>@Model.StartHour.ToString("HH:mm")</p>
+        <p class="card-text"><b>Ora finish: </b>@Model.EndHour.ToString("HH:mm")</p>
+        <p class="card-text">    
+            <b>Nume clasa: </b>
+            <hr />
+            <div class="row">
+                @foreach (var classes in Model.Classes)
+            {
+                <div class="card-columns text-center">
+                    <a asp-controller="Classes" asp-action="Details" asp-route-id="@classes.Id">@classes.Name</a>
+                </div>
+            }
+            </div>
+        </p>
+    </div>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+    <a asp-action="Index">Back to List</a>
+</div>

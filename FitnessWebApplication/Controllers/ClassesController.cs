@@ -22,7 +22,7 @@ namespace FitnessWebApplication.Controllers
          
         public async Task<IActionResult> Index()
         {
-            var allClasses = await _service.GetAllAsync(m => m.Trainer);
+            var allClasses = await _service.GetAllAsync(m=>m.Trainer);
             return View(allClasses);
         }
 

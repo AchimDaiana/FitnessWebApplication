@@ -4,14 +4,16 @@ using FitnessWebApplication.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FitnessWebApplication.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220502194509_FixingTableschedule")]
+    partial class FixingTableschedule
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -38,15 +40,10 @@ namespace FitnessWebApplication.Migrations
                     b.Property<string>("PictureUrl")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("ScheduleId")
-                        .HasColumnType("int");
-
                     b.Property<int>("TrainerId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ScheduleId");
 
                     b.HasIndex("TrainerId");
 
@@ -74,24 +71,6 @@ namespace FitnessWebApplication.Migrations
                     b.HasIndex("ClassesId");
 
                     b.ToTable("Reservations");
-                });
-
-            modelBuilder.Entity("FitnessWebApplication.Models.Schedule", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("EndHour")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("StartHour")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Schedules");
                 });
 
             modelBuilder.Entity("FitnessWebApplication.Models.Subscription", b =>
@@ -192,17 +171,11 @@ namespace FitnessWebApplication.Migrations
 
             modelBuilder.Entity("FitnessWebApplication.Models.Classes", b =>
                 {
-                    b.HasOne("FitnessWebApplication.Models.Schedule", "Schedule")
-                        .WithMany("Classes")
-                        .HasForeignKey("ScheduleId");
-
                     b.HasOne("FitnessWebApplication.Models.Trainer", "Trainer")
                         .WithMany()
                         .HasForeignKey("TrainerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Schedule");
 
                     b.Navigation("Trainer");
                 });
@@ -256,11 +229,6 @@ namespace FitnessWebApplication.Migrations
             modelBuilder.Entity("FitnessWebApplication.Models.Reservation", b =>
                 {
                     b.Navigation("Users");
-                });
-
-            modelBuilder.Entity("FitnessWebApplication.Models.Schedule", b =>
-                {
-                    b.Navigation("Classes");
                 });
 
             modelBuilder.Entity("FitnessWebApplication.Models.Subscription", b =>

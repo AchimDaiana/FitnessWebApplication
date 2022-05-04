@@ -1,0 +1,53 @@
+﻿@model ScheduleVM
+
+@{
+    ViewData["Title"] = "Create a new class schedule";
+}
+
+<h2 class="text-center">Adauga o clasa noua in orar</h2>
+<br />
+<div class="row">
+    <div class="col-md-8 offset-2">
+        <form method="post" asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="row">
+                <div class="form-group">
+                    <label asp-for="StartHour" class="control-label"></label>
+                    <input asp-for="StartHour" type="time" class="form-control" />
+                    <span asp-validation-for="StartHour" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <label asp-for="EndHour" class="control-label"></label>
+                    <input asp-for="EndHour" type="time" class="form-control" />
+                    <span asp-validation-for="EndHour" class="text-danger"></span>
+                </div>
+            </div>
+
+          <div class="row">
+                <div class="form-group">
+                    <label asp-for="ClassesIds" class="control-label"></label>
+                    <select asp-for="ClassesIds" class="form-control" asp-items="ViewBag.Classes" ></select>
+                    <span asp-validation-for="ClassesIds" class="text-danger"></span>
+                </div>
+            </div>
+
+
+
+
+
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                    <a class="float-right" asp-action="Index">Back to Schedule</a>
+                </div>
+
+
+
+
+        </form>
+    </div>
+  
+</div>

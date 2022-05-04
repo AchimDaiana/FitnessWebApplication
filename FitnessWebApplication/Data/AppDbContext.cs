@@ -44,5 +44,6 @@ namespace FitnessWebApplication.Data
         public DbSet<Reservation> Reservations { get; set; }
         public DbSet<Classes> Classes { get; set; }
         public DbSet<Trainer> Trainers { get; set; }
+        public DbSet<Schedule> Schedules { get; set; }
     }
 }

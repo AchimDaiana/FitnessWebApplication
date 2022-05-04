@@ -1,20 +1,22 @@
 ﻿using FitnessWebApplication.Data.BaseRepositories;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace FitnessWebApplication.Models
 {
-    public class Schedule : IEntityBase
+    public class ScheduleVM 
     {
-        public int Id { get; set; }
-        //public string Training { get; set; }
+        [Display(Name = "Ora start")]
         public DateTime StartHour { get; set; }
+
+        [Display(Name = "Ora finish")]
         public DateTime EndHour { get; set; }
 
         //relatia cu clasele
-        public List<Classes> Classes{ get; set; }
+        public List<int> ClassesIds { get; set; }
         
 
 
